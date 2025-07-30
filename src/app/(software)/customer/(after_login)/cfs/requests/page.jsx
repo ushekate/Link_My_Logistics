@@ -8,7 +8,7 @@ export default function RequestsPage() {
 	const { setTitle } = useSidebar();
 
 	useEffect(() => {
-		setTitle('Pricing Requests')
+		setTitle('Service Requests')
 	}, []);
 
 	return (

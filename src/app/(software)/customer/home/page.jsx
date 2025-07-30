@@ -11,11 +11,11 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useCollection } from "@/hooks/useCollection";
 import {
-    ChevronLeft,
-    ChevronRight,
-    MapPin,
-    Search,
-    SlidersHorizontalIcon,
+  ChevronLeft,
+  ChevronRight,
+  MapPin,
+  Search,
+  SlidersHorizontalIcon,
 } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";

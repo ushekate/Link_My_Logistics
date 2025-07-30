@@ -37,6 +37,10 @@ export default function Sidebar({
   const router = useRouter();
   const { Logout } = useAuth();
 
+  const pathname = usePathname(); // for icon fetch from navLinks.js
+  const activeNav = navLinks.find((link) => link.icon === pathname);
+  const ActiveIcon = activeNav?.icon;
+
   const menuItems = [
     {
       icon: <MessageSquare className="text-[var(--foreground)]" />,
@@ -318,6 +322,8 @@ flex flex-col
               aria-label="Toggle Sidebar"
             >
               <PanelLeft />
+              {/* <ActiveIcon className="w-5 h-5" /> */}
+              
             </button>
             <h1 className="ml-4 text-lg md:text-xl font-semibold">{title}</h1>
           </div>
