@@ -1,0 +1,144 @@
+import React, { useEffect, useState } from 'react'
+import { Popover } from '../ui/Popover'
+import { Download, EllipsisVertical, Eye, MapPinned, MapPlus, Trash } from 'lucide-react'
+import Link from 'next/link';
+import { downloadAllFilesAsZip, processFiles } from '@/utils/fileUtils';
+
+export default function TransportActions({
+  row,
+  redirectLink = '',
+  updateLink = '',
+  trackLink = '',
+  user,
+  deleteItem,
+}) {
+  const [files, setFiles] = useState([]);
+  const [isDownloadingZip, setIsDownloadingZip] = useState(false);
+
+  // Wrapper function for downloadAllFilesAsZip utility
+  const handleDownloadAllFiles = () => {
+    downloadAllFilesAsZip(files, row.original, setIsDownloadingZip);
+  };
+
+  useEffect(() => {
+    if (row.original.files && row.original.files.length > 0) {
+      const fileObjects = processFiles(row.original.files, row.original);
+      setFiles(fileObjects);
+    }
+  }, [row]);
+
+  return (
+    <Popover
+      trigger={<EllipsisVertical className="w-4 h-4" />}
+      className='w-[250px] p-6'
+    >
+      <h1 className='font-semibold text-lg p-2 text-left border-b border-foreground/30'>Actions</h1>
+
+      <Link href={redirectLink}>
+        <button
+          className='flex items-center justify-between gap-2 p-4 w-full cursor-pointer'
+        >
+          <p>View Details</p>
+          <Eye
+            size={18}
+            className="cursor-pointer"
+          />
+        </button>
+      </Link>
+
+      <Link href={trackLink}>
+        <button className='flex items-center justify-between gap-2 p-4 w-full cursor-pointer'>
+          <p>Track Location</p>
+          <MapPinned
+            size={18}
+            className="cursor-pointer"
+          />
+        </button>
+      </Link>
+
+      <button
+        className='flex items-center justify-between gap-2 p-4 w-full cursor-pointer'
+        onClick={handleDownloadAllFiles}
+        disabled={isDownloadingZip}
+      >
+        {isDownloadingZip ? (
+          <>
+            <p>Creating ZIP...</p>
+            <p className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></p>
+          </>
+        ) : (
+          <>
+            <p>Download Zip ({files.length})</p>
+            <Download
+              size={18}
+              className="cursor-pointer"
+            />
+          </>
+        )}
+      </button>
+
+      {
+        (user?.role === 'Root' || user?.role === 'Merchant') && (
+          <>
+            <Link href={updateLink}>
+              <button className='flex items-center justify-between gap-2 p-4 w-full cursor-pointer'>
+                <p>Update Location</p>
+                <MapPlus
+                  size={18}
+                  className="cursor-pointer"
+                />
+              </button>
+            </Link>
+
+            <button
+              className='flex items-center justify-between gap-2 p-4 w-full cursor-pointer'
+              onClick={async () => {
+                console.log('Delete details for', row.original.id);
+                const confirmation = confirm('Are you sure you want to delete this entry?');
+                if (confirmation) {
+                  await deleteItem(row.original.id);
+                }
+              }}
+            >
+              <p>Delete Entry</p>
+              <Trash
+                size={18}
+                className="cursor-pointer"
+              />
+            </button>
+
+            {/*
+            <button
+              className='flex items-center justify-between gap-2 p-4 w-full cursor-pointer'
+              onClick={() => handleStatusUpdate(
+                row.original.id,
+                'Not Started'
+              )}
+            >
+              <p>Accept Request</p>
+              <CircleCheckBig
+                size={18}
+                className="cursor-pointer"
+              />
+            </button>
+
+            <button
+              className='flex items-center justify-between gap-2 p-4 w-full cursor-pointer'
+              onClick={() => handleStatusUpdate(
+                row.original.id,
+                'Cancelled'
+              )}
+            >
+              <p>Rejected Request</p>
+              <CircleX
+                size={18}
+                className="cursor-pointer"
+              />
+            </button>
+            */}
+          </>
+        )
+      }
+    </Popover>
+  )
+};
