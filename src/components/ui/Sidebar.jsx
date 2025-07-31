@@ -12,7 +12,7 @@ import {
   LayoutDashboard,
   X,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "./Button";
 import { navLinks } from "@/constants/navLinks";
 import { usePathname, useRouter } from "next/navigation";
@@ -33,13 +33,27 @@ export default function Sidebar({
   const [isTablet, setIsTablet] = useState(false);
   const [expandedItems, setExpandedItems] = useState({});
   const { open: isOpen, setOpen: setIsOpen, title } = useSidebar();
-  const currentPath = usePathname();
   const router = useRouter();
   const { Logout } = useAuth();
 
-  const pathname = usePathname(); // for icon fetch from navLinks.js
-  const activeNav = navLinks.find((link) => link.icon === pathname);
-  const ActiveIcon = activeNav?.icon;
+  //Fetch the Icons
+  const pathname = usePathname();
+  const currentPath = pathname;
+  // Function to find matching icon
+  const findMatchingIcon = (links, currentPath) => {
+    for (const link of links) {
+      if (link.href === currentPath) return link.icon;
+
+      if (link.subItems) {
+        const foundIcon = findMatchingIcon(link.subItems, currentPath);
+        if (foundIcon) return foundIcon;
+      }
+    }
+    return null;
+  };
+  const activeIcon = findMatchingIcon(navLinks, pathname) || PanelLeft;
+  //Icon Link
+
 
   const menuItems = [
     {
@@ -316,15 +330,22 @@ flex flex-col
         <header className="border-b p-4 flex items-center justify-between w-full">
           <div className="flex items-center">
             {/* Toggle Button */}
+            {/* <button
+              onClick={toggleSidebar}
+              className="p-2 rounded-md hover:bg-gray-200 focus:outline-none"
+              aria-label="Toggle Sidebar"
+            >
+              <PanelLeft />              
+            </button> */}
+
             <button
               onClick={toggleSidebar}
               className="p-2 rounded-md hover:bg-gray-200 focus:outline-none"
               aria-label="Toggle Sidebar"
             >
-              <PanelLeft />
-              {/* <ActiveIcon className="w-5 h-5" /> */}
-              
+              {React.createElement(activeIcon, { className: 'w-5 h-5' })}
             </button>
+
             <h1 className="ml-4 text-lg md:text-xl font-semibold">{title}</h1>
           </div>
           <div className="flex items-center gap-8 pr-4">

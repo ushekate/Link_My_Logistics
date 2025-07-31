@@ -20,6 +20,7 @@ import {
   MessageSquare,
   Ticket
 } from 'lucide-react';
+import { useSidebar } from '@/contexts/SidebarProvider';
 
 /**
  * Main Support Page
@@ -27,6 +28,10 @@ import {
  * Redirects agents to the agent dashboard
  */
 export default function SupportPage() {
+  const { setTitle } = useSidebar();
+  useEffect(() => {
+    setTitle('Support');
+  }, [setTitle]);
   const router = useRouter();
   const { user, loading: authLoading } = useAuth();
   const { createChatSession, getUserChatSessions } = useChat();

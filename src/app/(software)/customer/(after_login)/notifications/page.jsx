@@ -7,12 +7,17 @@ import Input from '@/components/ui/Input';
 import { Select, SelectItem } from '@/components/ui/Select';
 import { PB_URL } from '@/constants/url';
 import { useAuth } from '@/contexts/AuthContext';
+import { useSidebar } from '@/contexts/SidebarProvider';
 import { useCollection } from '@/hooks/useCollection';
 import { format } from 'date-fns';
 import { AlertCircle, Bell, Calendar, Download, ExternalLink, Eye, EyeOff, Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function NotificationPage() {
+  const { setTitle } = useSidebar();
+  useEffect(() => {
+    setTitle('Notifications & Updates');
+  }, [setTitle]);
   const { user } = useAuth();
   const { data: notifications, loading } = useCollection('notification', {
     filter: 'status = "Active"',

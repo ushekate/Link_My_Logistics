@@ -21,6 +21,7 @@ import {
   Ticket,
   FileText
 } from 'lucide-react';
+import { useSidebar } from '@/contexts/SidebarProvider';
 
 /**
  * Main Support Page

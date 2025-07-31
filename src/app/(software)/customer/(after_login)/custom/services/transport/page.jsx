@@ -13,7 +13,7 @@ export default function Services3PLPage() {
 	const [filteredServices, setFilteredServices] = useState(services_3pl_transport);
 
 	useEffect(() => {
-		setTitle('3PL Warehouse Services')
+		setTitle('Transport Services')
 	}, []);
 
 	const handleSearch = (e) => {
