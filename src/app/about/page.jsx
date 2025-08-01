@@ -5,22 +5,26 @@ import Link from "next/link";
 import { useState } from "react";
 import {
   Truck, Warehouse, Globe, ClipboardList, ArrowRight, Building2,
-  PlaneIcon, Ship, ShoppingCart, Anchor, Building
+  PlaneIcon, Ship, ShoppingCart, Anchor, Building,
+  TruckElectric,
+  Handshake,
+  ChartLine,
+  Boxes
 } from "lucide-react";
 import Footer from "../components/footer/Footer";
 import Navbar from "../components/header/navbar";
 
 const missionPoints = [
-  { title: "Digital Transformation", desc: "Revolutionizing logistics through our innovative digital platform that connects all aspects of the supply chain.", icon: <ClipboardList /> },
-  { title: "Reliable Partnerships", desc: "Building a network of verified and reliable service providers across the logistics ecosystem.", icon: <Globe /> },
-  { title: "Operational Excellence", desc: "Optimizing logistics routes, assets, and partners to offer timely and affordable services.", icon: <Truck /> },
+  { title: "Digital Transformation", desc: "Revolutionizing logistics through our innovative digital platform that connects all aspects of the supply chain.", icon: <TruckElectric /> },
+  { title: "Reliable Partnerships", desc: "Building a network of verified and reliable service providers across the logistics ecosystem.", icon: <Handshake /> },
+  { title: "Operational Excellence", desc: "Optimizing logistics routes, assets, and partners to offer timely and affordable services.", icon: <ChartLine /> },
 ];
 
 const offerings = [
-  { title: "Container Freight Station", desc: "Import/export cargo CFS services.", icon: <Warehouse /> },
-  { title: "Warehousing & Storage", desc: "Bonded and general warehousing solutions.", icon: <Warehouse /> },
-  { title: "Transportation", desc: "Domestic and interstate transportation.", icon: <Truck /> },
-  { title: "End-to-End 3PL", desc: "Complete logistics management solutions.", icon: <Globe /> },
+  { title: "Container Freight Station", desc: "Comprehensive CFS services for import and export cargo handling.", icon: <Warehouse /> },
+  { title: "Warehousing & Storage", desc: "Bonded and general warehousing solutions for all your storage needs.", icon: <Boxes /> },
+  { title: "Transportation", desc: "Domestic and inter-state transportation services across India.", icon: <Truck /> },
+  { title: "End-to-End 3PL", desc: "Complete logistics management solutions for your business.", icon: <Globe /> },
 ];
 
 const chooseUsPoints = [
@@ -42,7 +46,6 @@ const clients = [
 ];
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <main className="font-sans text-gray-800">
@@ -53,14 +56,6 @@ export default function Home() {
         <div className="relative z-10 text-center px-4 max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">India's First Digital Logistics Partner</h1>
           <p className="text-lg mb-6">Transforming the logistics landscape with a one-stop destination for all your logistics needs – CFS, Warehousing, Transportation, and End-to-End 3PL services.</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/services">
-              <button className="bg-white text-blue-700 font-semibold px-5 py-2 rounded">Our Services</button>
-            </Link>
-            <Link href="/contact">
-              <button className="border border-white px-5 py-2 rounded">Contact Us</button>
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -72,7 +67,7 @@ export default function Home() {
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 bg-primary/20 p-8 rounded-xl max-w-6xl mx-auto">
           {missionPoints.map((item, idx) => (
             <div key={idx} className="bg-white shadow-md border-t-4 border-primary rounded-lg p-6">
-              <div className="text-blue-600 mb-4">{item.icon}</div>
+              <div className="text-primary w-fit mb-4 bg-primary/20 p-2 rounded-full">{item.icon}</div>
               <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
               <p className="text-gray-600">{item.desc}</p>
             </div>
@@ -85,13 +80,12 @@ export default function Home() {
         <p className="text-gray-600 max-w-xl mx-auto mb-10">
           We connect businesses with verified and reliable service providers across the logistics ecosystem to offer comprehensive solutions.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto py-8">
           {offerings.map((item, idx) => (
-            <div key={idx} className="bg-gray-50 p-6 rounded shadow hover:shadow-lg transition">
-              <div className="text-blue-600 mb-4">{item.icon}</div>
-              <h4 className="font-semibold mb-2">{item.title}</h4>
+            <div key={idx} className="bg-gray-50 p-6 py-10 rounded shadow hover:shadow-lg transition">
+              <div className="text-primary mb-4 bg-primary/20 p-2 rounded-md w-fit">{item.icon}</div>
+              <h4 className="font-semibold text-2xl mb-2">{item.title}</h4>
               <p className="text-sm text-gray-600">{item.desc}</p>
-              <a href="#" className="text-blue-600 mt-3 inline-block">Learn more <ArrowRight className="inline w-4 h-4 ml-1" /></a>
             </div>
           ))}
         </div>
@@ -135,10 +129,14 @@ export default function Home() {
 
       <section className="bg-white text-primary text-center py-16 px-4">
         <h2 className="text-2xl font-bold mb-4">Join the Future of Logistics</h2>
-        <p className="mb-6 max-w-2xl mx-auto">We are not just a logistics service provider – we are your digital logistics partner. Let’s move your business forward.</p>
+        <p className="mb-6 max-w-2xl mx-auto">At Link My Logistics, We are not just a logistics service provider – we are your digital logistics partner. Together, let's simplify the complex and move your business forward.</p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <button className="bg-primary text-white px-5 py-2 rounded">Book Services Now</button>
-          <button className="border border-primary px-5 py-2 rounded">Contact Sales Team</button>
+          <Link href={"/customer/register"}>
+            <button className="bg-primary text-white px-5 py-2 rounded">Book Services Now</button>
+          </Link>
+          <Link href={"/contact"}>
+            <button className="border border-primary px-5 py-2 rounded">Contact Sales Team</button>
+          </Link>
         </div>
       </section>
 

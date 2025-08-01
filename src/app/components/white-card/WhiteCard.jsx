@@ -118,7 +118,7 @@ export default function WhiteCard() {
   const renderFormFields = () => {
     if (activeService === 'transport') {
       return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* From Location */}
           <div className="space-y-3">
             <label className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
@@ -139,7 +139,7 @@ export default function WhiteCard() {
           </div>
 
           {/* To Location */}
-          <div className="space-y-3">
+          <div className="space-y-2">
             <label className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
               <Navigation className="text-light-primary" /> To Location
             </label>
@@ -175,12 +175,12 @@ export default function WhiteCard() {
           </div>
 
           {/* Number of Vehicles */}
-          <div className="space-y-3 md:col-span-3">
+          <div className="md:col-span-3 mb-3">
             <label className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
               <Package className="text-primary" /> Number of Vehicles
             </label>
-            <div className="bg-accent p-6 rounded-xl border-2 border-secondary/20">
-              <div className="flex items-center justify-between mb-4">
+            <div className="bg-accent p-2 px-4 rounded-xl border-2 border-secondary/20">
+              <div className="flex items-center justify-between mb-2">
                 <span className="text-2xl font-bold text-foreground">{numberOfVehicles}</span>
                 <span className="text-sm text-secondary">Vehicles</span>
               </div>
@@ -191,7 +191,7 @@ export default function WhiteCard() {
                 step="1"
                 value={numberOfVehicles}
                 onChange={(e) => setNumberOfVehicles(Number(e.target.value))}
-                className="w-full h-3 bg-secondary/20 rounded-lg appearance-none cursor-pointer slider"
+                className="w-full bg-secondary/20 rounded-lg appearance-none cursor-pointer slider"
                 style={{
                   background: `linear-gradient(to right, var(--primary) 0%, var(--primary) ${(numberOfVehicles / 10) * 100}%, #E5E7EB ${(numberOfVehicles / 10) * 100}%, #E5E7EB 100%)`
                 }}
@@ -206,7 +206,7 @@ export default function WhiteCard() {
       );
     } else if (activeService === '3pl') {
       return (
-        <div className="space-y-6">
+        <div className="">
           {/* First Row: From and To Location */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
@@ -268,7 +268,7 @@ export default function WhiteCard() {
               <label className="text-base font-semibold text-foreground mb-2 flex items-center gap-2">
                 <Package className="text-primary" size={18} /> Number of Vehicles
               </label>
-              <div className="bg-accent p-4 rounded-xl border-2 border-secondary/20">
+              <div className="bg-accent p-2 px-4 rounded-xl border-2 border-secondary/20">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-xl font-bold text-foreground">{numberOfVehicles}</span>
                   <span className="text-sm text-secondary">Vehicles</span>
@@ -294,12 +294,12 @@ export default function WhiteCard() {
           </div>
 
           {/* Third Row: Tariff and Storage Days */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-2">
             <div className="space-y-2">
               <label className="text-base font-semibold text-foreground mb-2 flex items-center gap-2">
                 <IndianRupee className="text-primary" size={18} /> Max Tariff Rate
               </label>
-              <div className="bg-accent p-4 rounded-xl border-2 border-secondary/20">
+              <div className="bg-accent p-2 px-4 rounded-xl border-2 border-secondary/20">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-xl font-bold text-foreground">₹{tariffRange.toLocaleString()}</span>
                   <span className="text-sm text-secondary">Max Budget</span>
@@ -327,7 +327,7 @@ export default function WhiteCard() {
               <label className="text-base font-semibold text-foreground mb-2 flex items-center gap-2">
                 <Clock className="text-primary" size={18} /> Free Storage Days
               </label>
-              <div className="bg-accent p-4 rounded-xl border-2 border-secondary/20">
+              <div className="bg-accent p-2 px-4 rounded-xl border-2 border-secondary/20">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-xl font-bold text-foreground">{freeDaysRange}</span>
                   <span className="text-sm text-secondary">Days</span>
@@ -374,7 +374,7 @@ export default function WhiteCard() {
                 <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
               </div>
             </div>
-            <p className="text-sm text-secondary mt-2 flex items-center gap-2">
+            <p className="text-sm text-black mt-2 flex items-center gap-2">
               <Calendar className="w-4 h-4" /> Select your preferred {services.find(s => s.id === activeService)?.label} area
             </p>
           </div>
@@ -406,7 +406,7 @@ export default function WhiteCard() {
                 <span>₹10,000</span>
               </div>
             </div>
-            <p className="text-sm text-secondary mt-2 flex items-center gap-2">
+            <p className="text-sm text-black mt-2 flex items-center gap-2">
               <Lightbulb className="w-4 h-4" /> Set your budget range
             </p>
           </div>
@@ -438,7 +438,7 @@ export default function WhiteCard() {
                 <span>15 Days</span>
               </div>
             </div>
-            <p className="text-sm text-secondary mt-2 flex items-center gap-2">
+            <p className="text-sm text-black mt-2 flex items-center gap-2">
               <Calendar className="w-4 h-4" /> Up to {freeDaysRange} free storage days
             </p>
           </div>
@@ -505,11 +505,11 @@ export default function WhiteCard() {
               }`}>
 
               {/* Header */}
-              <div className={`text-center pt-4 ${activeService === '3pl' ? 'mb-6' : 'mb-10'}`}>
+              <div className={`text-center pt-4 ${activeService === '3pl' ? 'mb-8' : 'mb-10'}`}>
                 <h2 className="text-3xl font-bold text-foreground mb-2">
                   🔍 What Are You Looking For?
                 </h2>
-                <p className="text-secondary">
+                <p className="text-black">
                   Find the perfect {services.find(s => s.id === activeService)?.label} solution for your needs ✨
                 </p>
               </div>
@@ -525,13 +525,13 @@ export default function WhiteCard() {
                     (activeService === '3pl' && (!fromLocation || !toLocation || !vehicleType)) ||
                     ((activeService === 'cfs' || activeService === 'warehouse') && !fromLocation)
                   }
-                  className="group relative inline-flex items-center justify-center px-12 py-5 text-xl font-bold text-white transition-all duration-300 bg-gradient-to-r from-primary to-light-primary rounded-2xl hover:from-light-primary hover:to-primary focus:outline-none focus:ring-4 focus:ring-primary/20 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl transform hover:scale-105"
+                  className="group relative inline-flex items-center justify-center px-8 py-3 text-xl font-bold text-white transition-all duration-300 bg-gradient-to-r from-primary to-light-primary rounded-2xl hover:from-light-primary hover:to-primary focus:outline-none focus:ring-4 focus:ring-primary/20 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl transform hover:scale-105"
                 >
                   <Search className="w-6 h-6 mr-3" />
                   Search {services.find(s => s.id === activeService)?.label} Now
                   <div className="absolute inset-0 rounded-2xl bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                 </button>
-                <p className="text-sm text-secondary mt-4 flex items-center gap-2 justify-center">
+                <p className="text-sm text-black mt-4 -mb-6 flex items-center gap-2 justify-center">
                   <Rocket className="w-4 h-4" /> Find the perfect solution in seconds
                 </p>
               </div>
