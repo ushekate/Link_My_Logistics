@@ -1,16 +1,20 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import {
   Truck, Warehouse, Package, Container, MapPin,
-  MessageCircle, CheckCircle, ArrowRight, Shield, Clock, Users
+  MessageCircle, CheckCircle, ArrowRight, Shield, Clock, Users,
+  Menu
 } from 'lucide-react';
 import Footer from '../components/footer/Footer';
+import Link from 'next/link';
+import Navbar from '../components/header/navbar';
 
 const ServicesPage = () => {
   const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const mainServices = [
     {
@@ -119,11 +123,13 @@ const ServicesPage = () => {
   return (
     <div className="flex flex-col min-h-screen" style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
       <main className="flex-grow">
-        
-  
-        <div className="relative w-full h-[50vh] flex items-center justify-center overflow-hidden">
+        {/* Navbar */}
+
+        <Navbar />
+
+        <div className="relative w-full h-[90vh] flex items-center justify-center overflow-hidden">
           <Image
-            src="/bgimg1.jpeg"
+            src="/bgimg2.jpeg"
             alt="About Hero"
             fill
             className="object-cover object-center brightness-75 scale-105 transition-transform duration-700"
@@ -136,16 +142,16 @@ const ServicesPage = () => {
             <p className="text-white/90 text-lg md:text-2xl mt-4 max-w-2xl animate-fade-up delay-[200ms]">
               Comprehensive logistics solutions designed to streamline your supply chain operations and drive business growth.
             </p>
-            <button
+            {/* <button
               onClick={() => router.back()}
               className="mt-6 px-4 py-2 bg-white text-black rounded-lg text-sm hover:bg-gray-200 transition"
             >
               ← Go Back
-            </button>
+            </button> */}
           </div>
         </div>
 
-       
+
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12" style={{ color: 'var(--primary)' }}>
@@ -191,7 +197,7 @@ const ServicesPage = () => {
           </div>
         </section>
 
-       
+
         <section className="py-16 px-4" style={{ background: 'var(--accent)' }}>
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-4" style={{ color: 'var(--primary)' }}>
@@ -224,7 +230,7 @@ const ServicesPage = () => {
           </div>
         </section>
 
- 
+
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12" style={{ color: 'var(--primary)' }}>

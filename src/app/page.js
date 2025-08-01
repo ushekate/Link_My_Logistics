@@ -7,10 +7,11 @@ import WhiteCard from './components/white-card/WhiteCard';
 import GreenCard from './components/green-card/GreenCard';
 import FAQ from "./components/faq/faq";
 import Footer from './components/footer/Footer';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MobileWhiteCard from "./components/white-card/mobileWhiteCard";
 import { useIsMobile } from "@/hooks/use-mobile";
 import Image from 'next/image';
+import Navbar from './components/header/navbar';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,9 +23,26 @@ export default function Home() {
     { no: "150K+", label: "Satisfied Customers" },
   ];
 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const backgroundImages = [
+    '/bgimg.jpeg',
+    '/bgimg1.jpeg',
+    '/bgimg2.jpeg',
+    '/bgimg3.webp',
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 4000); // change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="bg-white">
       {/* Glassmorphism Navbar */}
+      {/* <Navbar /> */}
       <nav className="absolute top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-md border-b border-white/20 flex justify-between items-center px-6 py-3 h-auto">
         <div className="w-auto h-full flex justify-center items-center pt-2 px-2">
           <Image
@@ -48,7 +66,6 @@ export default function Home() {
         >
           {[
             { text: 'Services', href: '/services' },
-            { text: 'Tracking', href: '/tracking' },
             { text: 'About Us', href: '/about' },
             { text: 'Contact Us', href: '/contact' },
           ].map((item, i) => (
@@ -78,15 +95,19 @@ export default function Home() {
         </div>
       </nav>
 
-      {
-        useIsMobile() ? (
-          <MobileWhiteCard />
-        ) : (
-          <WhiteCard />
-        )
-      }
+      <div className="min-h-screen bg-cover bg-center backdrop-blur-sm transition-all mt-8 duration-1000"
+      style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})`, }}
+      >
+        {
+          useIsMobile() ? (
+            <MobileWhiteCard />
+          ) : (
+            <WhiteCard />
+          )
+        }
+      </div>
 
-      <section className="px-6 sm:px-20 py-16 bg-accent mt-20">
+      <section className="px-6 sm:px-20 py-16 bg-accent">
         <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-10 text-center">
           News & Updates
         </h2>

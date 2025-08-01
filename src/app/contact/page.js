@@ -2,12 +2,21 @@
 'use client';
 import Image from 'next/image';
 import Footer from '../components/footer/Footer';
+import { useState } from 'react';
+import { Menu } from 'lucide-react';
+import Link from 'next/link';
+import Navbar from '../components/header/navbar';
 
 export default function ContactUs() {
+    const [menuOpen, setMenuOpen] = useState(false);
     return (
+            
         <section className="min-h-screen bg-secondary/20 flex flex-col items-center overflow-x-hidden">
+            {/* Navbar */}
+            <Navbar />
+
             {/* Hero */}
-            <div className="relative w-full h-[40vh] flex items-center justify-center">
+            <div className="relative w-full h-[80vh] flex items-center justify-center">
                 <Image
                     src="/bgimg3.webp"
                     alt="Contact Us Hero"

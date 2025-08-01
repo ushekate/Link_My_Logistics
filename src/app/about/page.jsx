@@ -1,160 +1,149 @@
-'use client';
-import Image from 'next/image';
-import Footer from '../components/footer/Footer';
+"use client";
 
-export default function AboutUs() {
-    return (
-        <section className="relative min-h-screen w-full bg-gradient-to-br from-backgroundi to-accent flex flex-col items-center overflow-x-hidden">
-            {/* Hero Section */}
-            <div className="relative w-full h-[50vh] flex items-center justify-center overflow-hidden">
-                <Image
-                    src="/bgimg2.jpeg"
-                    alt="About Hero"
-                    fill
-                    className="object-cover object-center brightness-75 scale-105 transition-transform duration-700"
-                    priority
-                />
-                <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center z-10 px-4">
-                    <h1 className="text-white text-5xl md:text-6xl font-extrabold tracking-tight drop-shadow-lg animate-fade-up">
-                        Who We Are
-                    </h1>
-                    <p className="text-white/90 text-lg md:text-2xl mt-4 max-w-2xl animate-fade-up delay-[200ms]">
-                        GOL is redefining global logistics with technology, sustainability, and a human touch.
-                    </p>
-                </div>
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import {
+  Truck, Warehouse, Globe, ClipboardList, ArrowRight, Building2,
+  PlaneIcon, Ship, ShoppingCart, Anchor, Building
+} from "lucide-react";
+import Footer from "../components/footer/Footer";
+import Navbar from "../components/header/navbar";
+
+const missionPoints = [
+  { title: "Digital Transformation", desc: "Revolutionizing logistics through our innovative digital platform that connects all aspects of the supply chain.", icon: <ClipboardList /> },
+  { title: "Reliable Partnerships", desc: "Building a network of verified and reliable service providers across the logistics ecosystem.", icon: <Globe /> },
+  { title: "Operational Excellence", desc: "Optimizing logistics routes, assets, and partners to offer timely and affordable services.", icon: <Truck /> },
+];
+
+const offerings = [
+  { title: "Container Freight Station", desc: "Import/export cargo CFS services.", icon: <Warehouse /> },
+  { title: "Warehousing & Storage", desc: "Bonded and general warehousing solutions.", icon: <Warehouse /> },
+  { title: "Transportation", desc: "Domestic and interstate transportation.", icon: <Truck /> },
+  { title: "End-to-End 3PL", desc: "Complete logistics management solutions.", icon: <Globe /> },
+];
+
+const chooseUsPoints = [
+  { title: "One-Stop Platform", desc: "All Logistics services under a single digital roof." },
+  { title: "Digital Access", desc: "User Friendly Platform for business of all sizes" },
+  { title: "Central Dashboard", desc: "Track Orders, Shipments, and Performance in one place." },
+  { title: "Cost-Effective", desc: "Optimized routes, and partnerships for affordable services." },
+  { title: "Transparency", desc: "Clear Pricing, reliable SLAs, and open ratings." },
+  { title: "End-to-End Visibility", desc: "Complete control and real time Updates on your cargo." },
+];
+
+const clients = [
+  { icon: <Ship size={40} className="p-2 bg-primary/20 rounded-full" />, title: "Importers & Exporters" },
+  { icon: <Building size={40} className="p-2 bg-primary/20 rounded-full" />, title: "MSMEs & Enterprises" },
+  { icon: <PlaneIcon size={40} className="p-2 bg-primary/20 rounded-full" />, title: "Freight Forwarders" },
+  { icon: <Building2 size={40} className="p-2 bg-primary/20 rounded-full" />, title: "Manufacturers" },
+  { icon: <ShoppingCart size={40} className="p-2 bg-primary/20 rounded-full" />, title: "E-commerce Players" },
+  { icon: <Anchor size={40} className="p-2 bg-primary/20 rounded-full" />, title: "Port Operators" },
+];
+
+export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <main className="font-sans text-gray-800">
+      <Navbar />
+
+      <section className="relative bg-black text-white min-h-[80vh] flex items-center justify-center px-4">
+        <Image src="/cargo-ship.png" alt="Hero" fill className="object-cover opacity-60" />
+        <div className="relative z-10 text-center px-4 max-w-3xl">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">India's First Digital Logistics Partner</h1>
+          <p className="text-lg mb-6">Transforming the logistics landscape with a one-stop destination for all your logistics needs – CFS, Warehousing, Transportation, and End-to-End 3PL services.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link href="/services">
+              <button className="bg-white text-blue-700 font-semibold px-5 py-2 rounded">Our Services</button>
+            </Link>
+            <Link href="/contact">
+              <button className="border border-white px-5 py-2 rounded">Contact Us</button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50 text-center px-4">
+        <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
+        <p className="max-w-2xl mx-auto mb-10 text-gray-600">
+          To provide easy, cost-effective, and fast logistics solutions for every consignee, shipper, exporter, or importer regardless of size or industry.
+        </p>
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 bg-primary/20 p-8 rounded-xl max-w-6xl mx-auto">
+          {missionPoints.map((item, idx) => (
+            <div key={idx} className="bg-white shadow-md border-t-4 border-primary rounded-lg p-6">
+              <div className="text-blue-600 mb-4">{item.icon}</div>
+              <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+              <p className="text-gray-600">{item.desc}</p>
             </div>
+          ))}
+        </div>
+      </section>
 
-            {/* Our Story */}
-            <div className="w-full max-w-6xl px-4 md:px-8 py-20 flex flex-col md:flex-row gap-12 items-center">
-                <div className="flex-1 space-y-5 animate-fade-right">
-                    <h2 className="text-4xl font-bold text-foreground">Our Story</h2>
-                    <p className="text-primary text-lg leading-relaxed">
-                        Founded in 2010, GOL started as a small team with a big dream: to make logistics seamless,
-                        sustainable, and accessible. Today, we connect businesses and people across 150+ countries.
-                    </p>
-                    <ul className="grid grid-cols-2 gap-2 text-foreground/60 font-medium list-disc pl-5">
-                        <li>150+ Countries Served</li>
-                        <li>1000+ Global Routes</li>
-                        <li>24/7 Customer Support</li>
-                        <li>Green Shipping</li>
-                    </ul>
-                </div>
-                <div className="flex-1 flex justify-center animate-fade-left">
-                    <div className="relative w-72 h-72 rounded-2xl overflow-hidden shadow-xl border-4 border-foreground/20">
-                        <Image
-                            src="/bgimg1.jpeg"
-                            alt="Our Team"
-                            fill
-                            className="object-cover object-center"
-                        />
-                    </div>
-                </div>
+      <section className="py-16 text-center bg-foreground/20 px-4">
+        <h2 className="text-2xl font-bold mb-4">What We Offer</h2>
+        <p className="text-gray-600 max-w-xl mx-auto mb-10">
+          We connect businesses with verified and reliable service providers across the logistics ecosystem to offer comprehensive solutions.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {offerings.map((item, idx) => (
+            <div key={idx} className="bg-gray-50 p-6 rounded shadow hover:shadow-lg transition">
+              <div className="text-blue-600 mb-4">{item.icon}</div>
+              <h4 className="font-semibold mb-2">{item.title}</h4>
+              <p className="text-sm text-gray-600">{item.desc}</p>
+              <a href="#" className="text-blue-600 mt-3 inline-block">Learn more <ArrowRight className="inline w-4 h-4 ml-1" /></a>
             </div>
+          ))}
+        </div>
+      </section>
 
-            {/* Values */}
-            <div className="w-full bg-primary py-20 px-4 text-white text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-12 animate-fade-up">Our Core Values</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-                    {[
-                        {
-                            icon: '/globe.svg',
-                            title: 'Global Reach',
-                            desc: 'Connecting continents, empowering businesses everywhere.',
-                        },
-                        {
-                            icon: '/cargo-ship.png',
-                            title: 'Sustainability',
-                            desc: 'Eco-friendly solutions for a greener planet.',
-                        },
-                        {
-                            icon: '/window.svg',
-                            title: 'Innovation',
-                            desc: 'Smart tech and creative minds drive our progress.',
-                        },
-                    ].map((value, i) => (
-                        <div
-                            key={i}
-                            className="bg-white text-foreground rounded-xl shadow-md p-6 flex flex-col items-center transition-transform hover:scale-105 animate-fade-up"
-                        >
-                            <Image src={value.icon} alt={value.title} width={48} height={48} className="mb-4" />
-                            <h3 className="font-bold text-lg mb-2">{value.title}</h3>
-                            <p className="text-primary text-center">{value.desc}</p>
-                        </div>
-                    ))}
+      <section className="py-20 bg-gray-50 px-4">
+        <div className="max-w-6xl mx-auto grid gap-10 md:grid-cols-2 items-center">
+          <div>
+            <h2 className="text-2xl font-bold mb-6">Why Choose Us?</h2>
+            <p className="text-gray-600 mb-10">At Link My Logistics, we are not just a logistics service provider - we are your digital logistics partner. Together, let's simplify the complex and move your business forward.</p>
+            <div className="space-y-4 text-gray-700 grid sm:grid-cols-2">
+              {chooseUsPoints.map((point, idx) => (
+                <div key={idx} className="gap-2">
+                  <div className="flex items-start gap-2">
+                    <span className="text-primary">✔</span>
+                    <span className="font-semibold text-lg">{point.title}</span>
+                  </div>
+                  <div className="px-8">
+                    <span className="text-sm">{point.desc}</span>
+                  </div>
                 </div>
+              ))}
             </div>
+          </div>
+          <Image src="/bgimg1.jpeg" alt="Logistics dashboard" width={500} height={300} className="rounded-lg shadow w-full" />
+        </div>
+      </section>
 
-            {/* Leadership */}
-            <div className="py-20 px-4 max-w-full mx-auto text-center">
-                <h3 className="text-3xl font-bold text-foreground mb-10 animate-fade-up">Meet Our Leadership</h3>
-                <div className="flex flex-wrap justify-center gap-8">
-                    {[
-                        { name: 'Alex Carter', role: 'CEO & Founder', img: '/bgimg4.webp' },
-                        { name: 'Priya Singh', role: 'Head of Operations', img: '/bgimg2.jpeg' },
-                        { name: 'Liam Chen', role: 'Logistics Manager', img: '/bgimg3.webp' },
-                    ].map((member, i) => (
-                        <div
-                            key={i}
-                            className="bg-light-primary/30 rounded-xl shadow-lg p-6 w-80 flex flex-col items-center hover:scale-105 transition-transform animate-fade-up"
-                        >
-                            <Image
-                                src={member.img}
-                                alt={member.name}
-                                width={80}
-                                height={80}
-                                className="rounded-full object-cover mb-3"
-                            />
-                            <span className="font-semibold text-primary">{member.name}</span>
-                            <span className="text-secondary text-sm">{member.role}</span>
-                        </div>
-                    ))}
-                </div>
+      <section className="py-16 text-center bg-foreground/10 px-4">
+        <h2 className="text-2xl font-bold mb-6">Who We Serve</h2>
+        <p className="text-gray-600 mb-10">Our digital logistics platform is designed to meet the needs of various businesses across industries.</p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 max-w-6xl mx-auto">
+          {clients.map((client, idx) => (
+            <div key={idx} className="bg-white px-3 py-8 rounded shadow-sm space-y-4">
+              <span className="text-2xl flex justify-center text-primary">{client.icon}</span>
+              <p className="text-xl font-semibold text-black">{client.title}</p>
             </div>
+          ))}
+        </div>
+      </section>
 
-            <Footer />
+      <section className="bg-white text-primary text-center py-16 px-4">
+        <h2 className="text-2xl font-bold mb-4">Join the Future of Logistics</h2>
+        <p className="mb-6 max-w-2xl mx-auto">We are not just a logistics service provider – we are your digital logistics partner. Let’s move your business forward.</p>
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <button className="bg-primary text-white px-5 py-2 rounded">Book Services Now</button>
+          <button className="border border-primary px-5 py-2 rounded">Contact Sales Team</button>
+        </div>
+      </section>
 
-            {/* Animations */}
-            <style jsx>{`
-                .animate-fade-up {
-                    animation: fadeUp 0.8s ease-out both;
-                }
-                .animate-fade-left {
-                    animation: fadeLeft 0.8s ease-out both;
-                }
-                .animate-fade-right {
-                    animation: fadeRight 0.8s ease-out both;
-                }
-                @keyframes fadeUp {
-                    from {
-                        opacity: 0;
-                        transform: translateY(40px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-                @keyframes fadeLeft {
-                    from {
-                        opacity: 0;
-                        transform: translateX(-40px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateX(0);
-                    }
-                }
-                @keyframes fadeRight {
-                    from {
-                        opacity: 0;
-                        transform: translateX(40px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateX(0);
-                    }
-                }
-            `}</style>
-        </section>
-    );
+      <Footer />
+    </main>
+  );
 }
+

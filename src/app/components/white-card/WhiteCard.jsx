@@ -22,8 +22,15 @@ export default function WhiteCard() {
     { id: 'transport', label: "Transport", icon: <Truck size={24} /> },
     { id: '3pl', label: "3PL", icon: <Handshake size={24} /> },
     { id: 'warehouse', label: "Warehouse", icon: <Warehouse size={24} /> },
-    { id: 'customs', label: "Customs", icon: <ShieldCheck size={24} /> },
+    { id: 'customs', label: "Customs Packages", icon: <ShieldCheck size={24} /> },
   ];
+
+  const getProgressFraction = () => {
+  const index = services.findIndex(s => s.id === activeService);
+  const total = services.length - 1;
+  return index / total; // returns 0.0 to 1.0
+};
+
 
   const vehicleTypes = [
     'Truck',
@@ -452,23 +459,23 @@ export default function WhiteCard() {
         />
 
         {/* <div className="white-card relative min-h-[90dvh] w-[90%] bg-background backdrop-blur-sm border rounded-lg shadow-2xl z-10"> */}
-        <div className="white-card relative min-h-[90dvh] w-[90%] bg-[url('/cargo-ship.png')] bg-cover bg-center backdrop-blur-sm border rounded-lg shadow-2xl z-10">
+        <div className="white-card relative min-h-screen w-[100%] shadow-2xl z-10">
 
 
           {/* Progress Line Background */}
-          <div className="absolute top-24 left-1/2 transform -translate-x-1/2 w-[58%] h-1 bg-secondary/30 rounded-full z-0" />
+          <div className="absolute top-24 left-1/2 transform -translate-x-1/2 w-[50%] h-1 bg-secondary/30 rounded-full z-0" />
 
           {/* Animated Progress Line */}
           <div
-            className="absolute top-24 left-1/2 transform -translate-x-1/2 h-1 bg-gradient-to-r from-primary to-light-primary rounded-full z-0 transition-all duration-500 ease-in-out"
+            className="absolute top-19 left-1/2 transform -translate-x-1/2 h-1 bg-gradient-to-r from-primary to-light-primary rounded-full z-0 transition-all duration-500 ease-in-out"
             style={{
               width: '58%',
-              clipPath: `inset(0 ${100 - parseFloat(getProgressWidth())}% 0 0)`
+              clipPath: `inset(0 ${(1 - getProgressFraction()) * 100}% 0 0)`,
             }}
           />
 
           {/* Service Icons */}
-          <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-[60%] flex justify-between z-10">
+          <div className="absolute top-10 left-1/2 transform -translate-x-1/2 w-[60%] flex justify-between z-10">
             {services.map((service, index) => (
               <div
                 key={service.id}
@@ -482,23 +489,23 @@ export default function WhiteCard() {
                   {service.icon}
                 </div>
                 <p className={`mt-2 text-sm font-medium text-center transition-all duration-300 ${activeService === service.id
-                  ? 'text-black font-bold'
-                  : 'text-black'
+                  ? 'text-black font-bold bg-white rounded-full px-2'
+                  : 'text-black bg-white rounded-full px-2'
                   }`}>
                   {service.label}
-                  {service.id === 'customs' && <span className="block text-xs text-orange-500">Coming Soon</span>}
+                  {/* {service.id === 'customs' && <span className="block text-xs text-orange-500">Coming Soon</span>} */}
                 </p>
               </div>
             ))}
           </div>
 
           {/* Main Content */}
-          <div className="absolute top-40 left-1/2 transform -translate-x-1/2 w-[85%] max-w-5xl">
-            <div className={`bg-background/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-secondary/10 ${activeService === '3pl' ? 'p-8' : 'p-12'
+          <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-[85%] max-w-5xl">
+            <div className={`bg-white/30 backdrop-blur-sm rounded-2xl shadow-2xl border border-secondary/10 ${activeService === '3pl' ? 'p-8' : 'p-12'
               }`}>
 
               {/* Header */}
-              <div className={`text-center ${activeService === '3pl' ? 'mb-6' : 'mb-10'}`}>
+              <div className={`text-center pt-4 ${activeService === '3pl' ? 'mb-6' : 'mb-10'}`}>
                 <h2 className="text-3xl font-bold text-foreground mb-2">
                   🔍 What Are You Looking For?
                 </h2>
