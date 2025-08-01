@@ -11,6 +11,7 @@ import { PB_URL } from '@/constants/url';
 import { parseTagsFromResponse } from '@/app/(software)/client/(after_login)/profile/utils/tagUtils';
 import { useAuth } from '@/contexts/AuthContext';
 import LoginPopUp from '../../home/components/LoginPopUp';
+import Footer from '@/app/components/footer/Footer';
 
 export default function ServiceProviderDetailsPage() {
   const { id } = useParams();
@@ -257,6 +258,8 @@ export default function ServiceProviderDetailsPage() {
           </div>
         </div>
       </div>
+
+      <Footer />
 
       {/* Login Popup */}
       {showLoginPopup && <LoginPopUp onOpen={handleLoginPopupClose} />}
