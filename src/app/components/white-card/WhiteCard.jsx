@@ -501,7 +501,7 @@ export default function WhiteCard() {
 
           {/* Main Content */}
           <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-[85%] max-w-5xl">
-            <div className={`bg-white/30 backdrop-blur-sm rounded-2xl shadow-2xl border border-secondary/10 ${activeService === '3pl' ? 'p-8' : 'p-12'
+            <div className={`bg-white/60 backdrop-blur-sm rounded-2xl shadow-2xl border border-secondary/10 ${activeService === '3pl' ? 'p-8' : 'p-12'
               }`}>
 
               {/* Header */}

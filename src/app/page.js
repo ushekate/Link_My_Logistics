@@ -12,9 +12,12 @@ import MobileWhiteCard from "./components/white-card/mobileWhiteCard";
 import { useIsMobile } from "@/hooks/use-mobile";
 import Image from 'next/image';
 import Navbar from './components/header/navbar';
+import { usePathname } from 'next/navigation';
+
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const info = [
     { no: "5.6K+", label: "Global Partners" },
@@ -43,7 +46,7 @@ export default function Home() {
     <div className="bg-white">
       {/* Glassmorphism Navbar */}
       {/* <Navbar /> */}
-      <nav className="absolute top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-md border-b border-white/20 flex justify-between items-center px-6 py-3 h-auto">
+      <nav className="absolute top-0 left-0 right-0 z-50 bg-white/50 backdrop-blur-md border-b border-white/20 flex justify-between items-center px-6 py-3 h-auto">
         <div className="w-auto h-full flex justify-center items-center pt-2 px-2">
           <Image
             src={'/logistics-logo.png'}
@@ -65,6 +68,7 @@ export default function Home() {
           md:flex md:flex-row md:bg-transparent md:shadow-none md:rounded-none md:p-0 space-y-4 md:space-y-0 md:space-x-10`}
         >
           {[
+            { text: 'Home', href: '/' },
             { text: 'Services', href: '/services' },
             { text: 'About Us', href: '/about' },
             { text: 'Contact Us', href: '/contact' },
@@ -72,7 +76,9 @@ export default function Home() {
             <Link
               key={i}
               href={item.href}
-              className="cursor-pointer text-primary md:text-white md:drop-shadow-lg hover:underline text-lg font-semibold transition-all duration-200 hover:text-blue-200"
+              // className="cursor-pointer text-primary md:text-white md:drop-shadow-lg hover:underline text-lg font-semibold transition-all duration-200 hover:text-blue-200"
+              className={`cursor-pointer text-lg font-semibold transition-all duration-200 hover:underline hover:text-primary ${pathname === item.href ? 'text-primary underline' : 'text-foreground'
+                }`}
             >
               {item.text}
             </Link>
@@ -96,7 +102,7 @@ export default function Home() {
       </nav>
 
       <div className="min-h-screen bg-cover bg-center backdrop-blur-sm transition-all mt-8 duration-1000"
-      style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})`, }}
+        style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})`, }}
       >
         {
           useIsMobile() ? (

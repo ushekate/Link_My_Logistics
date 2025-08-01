@@ -1,4 +1,3 @@
-// app/contact/page.tsx
 'use client';
 import Image from 'next/image';
 import Footer from '../components/footer/Footer';
@@ -8,7 +7,6 @@ import Link from 'next/link';
 import Navbar from '../components/header/navbar';
 
 export default function ContactUs() {
-    const [menuOpen, setMenuOpen] = useState(false);
     return (
             
         <section className="min-h-screen bg-secondary/20 flex flex-col items-center overflow-x-hidden">
