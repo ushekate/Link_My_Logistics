@@ -60,7 +60,7 @@ export default function Home() {
       </section>
 
       <section className="py-16 bg-gray-50 text-center px-4">
-        <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
+        <h2 className="text-3xl font-bold mb-4 text-primary">Our Mission</h2>
         <p className="max-w-2xl mx-auto mb-10 text-gray-600">
           To provide easy, cost-effective, and fast logistics solutions for every consignee, shipper, exporter, or importer regardless of size or industry.
         </p>
@@ -76,7 +76,7 @@ export default function Home() {
       </section>
 
       <section className="py-16 text-center bg-foreground/20 px-4">
-        <h2 className="text-2xl font-bold mb-4">What We Offer</h2>
+        <h2 className="text-3xl font-bold mb-4 text-primary">What We Offer</h2>
         <p className="text-gray-600 max-w-xl mx-auto mb-10">
           We connect businesses with verified and reliable service providers across the logistics ecosystem to offer comprehensive solutions.
         </p>
@@ -94,7 +94,7 @@ export default function Home() {
       <section className="py-20 bg-gray-50 px-4">
         <div className="max-w-6xl mx-auto grid gap-10 md:grid-cols-2 items-center">
           <div className="animate-fade-right">
-            <h2 className="text-2xl font-bold mb-6">Why Choose Us?</h2>
+            <h2 className="text-3xl font-bold mb-6 text-primary">Why Choose Us?</h2>
             <p className="text-gray-600 mb-10">At Link My Logistics, we are not just a logistics service provider - we are your digital logistics partner. Together, let's simplify the complex and move your business forward.</p>
             <div className="space-y-4 text-gray-700 grid sm:grid-cols-2">
               {chooseUsPoints.map((point, idx) => (
@@ -117,7 +117,7 @@ export default function Home() {
       </section>
 
       <section className="py-16 text-center bg-foreground/10 px-4">
-        <h2 className="text-2xl font-bold mb-6">Who We Serve</h2>
+        <h2 className="text-3xl font-bold mb-6 text-primary">Who We Serve</h2>
         <p className="text-gray-600 mb-10">Our digital logistics platform is designed to meet the needs of various businesses across industries.</p>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 max-w-6xl mx-auto">
           {clients.map((client, idx) => (
@@ -130,7 +130,7 @@ export default function Home() {
       </section>
 
       <section className="bg-white text-primary text-center py-16 px-4">
-        <h2 className="text-2xl font-bold mb-4">Join the Future of Logistics</h2>
+        <h2 className="text-3xl font-bold mb-4">Join the Future of Logistics</h2>
         <p className="mb-6 max-w-2xl mx-auto">At Link My Logistics, We are not just a logistics service provider – we are your digital logistics partner. Together, let's simplify the complex and move your business forward.</p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link href={"/customer/register"}>
