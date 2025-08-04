@@ -43,13 +43,13 @@ export default function Footer() {
                                 </Link>
                             </button>
                         </li>
-                        <li>
+                        {/* <li>
                             <button>
                                 <Link href="/tracking" className="hover:text-primary transition-colors">
                                     Track Shipment
                                 </Link>
                             </button>
-                        </li>
+                        </li> */}
                         <li>
                             <button>
                                 <Link href="/contact" className="hover:text-primary transition-colors">

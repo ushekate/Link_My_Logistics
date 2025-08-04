@@ -82,13 +82,13 @@ export default function ContactUs() {
                     </div>
                     <div className="rounded-2xl overflow-hidden shadow-xl h-64">
                         <iframe
-                            title="GOL Office Location"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0869394935223!2d-122.39769568468161!3d37.7785192797584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085807cbae9f14b%3A0x903bcde34bb2bca1!2s123%20Innovation%20Dr%2C%20San%20Francisco%2C%20CA%2094107!5e0!3m2!1sen!2sus!4v1685805369394"
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0 }}
-                            loading="lazy"
-                            allowFullScreen
+                        title="GOL Office Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.9542625702575!2d72.99672527466494!3d19.06574845229534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c14e84cbb1cf%3A0xec7d66136f702da4!2sHaware%20Infotech%20Park%2C%20Sector%2030A%2C%20Vashi%2C%20Navi%20Mumbai%2C%20Maharashtra%20400703!5e0!3m2!1sen!2sin!4v1754319965133!5m2!1sen!2sin"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowfullscreen
+                        loading="lazy"
                         ></iframe>
                     </div>
                 </div>
