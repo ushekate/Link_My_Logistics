@@ -228,7 +228,7 @@ export default function Home() {
         ))}
       </div>
       <GreenCard />
-      <div className="bg-accent">
+      {/* <div className="bg-accent">
         <section className="text-center py-10">
           <h1 className="text-primary font-bold text-2xl sm:text-3xl">
             Track Your Package
@@ -243,7 +243,7 @@ export default function Home() {
             </Link>
           </div>
         </section>
-      </div>
+      </div> */}
       <FAQ />
       <Footer />
     </div>

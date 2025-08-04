@@ -267,7 +267,7 @@ export default function RegistrationLoginPage() {
       {/* Left Panel */}
       <div className="bg-primary w-1/2  flex flex-col items-center  px-10">
         <img
-          src="/rlogo.png"
+          src="/Register.png"
           className="h-70 w-70 rounded-2xl shadow-black shadow-lg mb-8 mt-40"
         />
         <h1 className="text-white font-bold text-3xl mb-4 text-center ">
@@ -300,7 +300,13 @@ export default function RegistrationLoginPage() {
 
           <div className="flex justify-between w-full mb-3 mt-5">
             <h1 className="text-black">Step 1 of 4</h1>
-            <h1 className="text-[#6B7280]">Login</h1>
+            <a
+              href="/client/login"
+              className="text-blue-600 ml-1 font-medium hover:underline"
+            >
+              Login
+            </a>
+            {/* <h1 className="text-[#6B7280]">Login</h1> */}
           </div>
           <Progress value={25} className="bg-[#E5E7EB]" />
 

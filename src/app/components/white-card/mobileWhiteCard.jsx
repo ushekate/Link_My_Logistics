@@ -447,9 +447,9 @@ const MobileWhiteCard = () => {
       </div>
 
       {/* Service Tabs */}
-      <div className="mb-6">
+      <div className="mb-6 relative">
         {/* Progress Line Background */}
-        <div className="relative">
+        <div className="absolute top-1/3 left-0 w-full transform -translate-y-1/2 z-0">
           <div className="w-full h-1 bg-gray-300 rounded-full" />
           <div
             className="absolute top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-500 ease-in-out"
@@ -458,7 +458,7 @@ const MobileWhiteCard = () => {
         </div>
 
         {/* Service Icons */}
-        <div className="flex justify-between items-center">
+        <div className="relative z-10 flex justify-between items-center">
           {services.map((service) => (
             <div
               key={service.id}

@@ -30,66 +30,66 @@ export default function Footer() {
                     <h2 className="font-bold mb-2">Quick Links</h2>
                     <ul className="space-y-1">
                         <li>
-                        <button>
-                            <Link href="/about" className="hover:text-primary transition-colors">
-                                About Us
-                            </Link>
-                        </button>
+                            <button>
+                                <Link href="/about" className="hover:text-primary transition-colors">
+                                    About Us
+                                </Link>
+                            </button>
                         </li>
                         <li>
-                        <button>
-                            <Link href="/services" className="hover:text-primary transition-colors">
-                                Services
-                            </Link>
-                        </button>
+                            <button>
+                                <Link href="/services" className="hover:text-primary transition-colors">
+                                    Services
+                                </Link>
+                            </button>
                         </li>
                         <li>
-                        <button>
-                            <Link href="/tracking" className="hover:text-primary transition-colors">
-                                Track Shipment
-                            </Link>
-                        </button>
+                            <button>
+                                <Link href="/tracking" className="hover:text-primary transition-colors">
+                                    Track Shipment
+                                </Link>
+                            </button>
                         </li>
-                         <li>
-                        <button>
-                            <Link href="/contact" className="hover:text-primary transition-colors">
-                                Contact
-                            </Link>
-                        </button>
-                      </li>
+                        <li>
+                            <button>
+                                <Link href="/contact" className="hover:text-primary transition-colors">
+                                    Contact
+                                </Link>
+                            </button>
+                        </li>
                     </ul>
                 </div>
 
                 <div>
                     <h2 className="font-bold mb-2">Services</h2>
                     <ul className="space-y-1">
-                         <li>
-                        <button>
-                            <Link href="/customer/home" className="hover:text-primary transition-colors">
-                                CFS
-                            </Link>
-                        </button>
+                        <li>
+                            <button>
+                                <Link href="/customer/home" className="hover:text-primary transition-colors">
+                                    CFS
+                                </Link>
+                            </button>
                         </li>
                         <li>
-                        <button>
-                            <Link href="/customer/home" className="hover:text-primary transition-colors">
-                                Transport
-                            </Link>
-                        </button>
+                            <button>
+                                <Link href="/customer/home" className="hover:text-primary transition-colors">
+                                    Transport
+                                </Link>
+                            </button>
                         </li>
                         <li>
-                        <button>
-                            <Link href="/customer/home" className="hover:text-primary transition-colors">
-                                3PL
-                            </Link>
-                        </button>
+                            <button>
+                                <Link href="/customer/home" className="hover:text-primary transition-colors">
+                                    3PL
+                                </Link>
+                            </button>
                         </li>
                         <li>
-                        <button>
-                            <Link href="/customer/home" className="hover:text-primary transition-colors">
-                                Warehouse
-                            </Link>
-                        </button>
+                            <button>
+                                <Link href="/customer/home" className="hover:text-primary transition-colors">
+                                    Warehouse
+                                </Link>
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -99,18 +99,23 @@ export default function Footer() {
                     <ul className="space-y-1">
                         <li>
                             <button>
-                            <a href="mailto:support@greenocean.com" className="hover:text-primary transition-colors">
-                                support@greenocean.com
-                            </a>
+                                <a href="mailto:helpedesklinkmylogistics@gmail.com" className="hover:text-primary transition-colors">
+                                    helpdesklinkmylogistics@gmail.com
+                                </a>
                             </button>
                         </li>
                         <li>
-                            <a href="tel:+919892464661" className="hover:text-primary transition-colors">
-                                +91 9892464661
+                            <a href="tel:+9102233794084" className="hover:text-primary transition-colors">
+                                Tel. +91 022 33794084,
                             </a>
                         </li>
-                        <li>Tower 2, 608 E Wing Sea Woods Grand Central</li>
-                        <li>Plot No R 1, Nerul, Thane, Maharashtra, 400706</li>
+                        <li>
+                            <a href="tel:+919619023410" className="hover:text-primary transition-colors">
+                                Mob. +91 96190 23410
+                            </a>
+                        </li>
+                        <li>Haware Infotech Park, Sector 30A,</li>
+                        <li>Vashi, Navi Mumbai, Maharashtra 400703</li>
                     </ul>
                 </div>
             </div>

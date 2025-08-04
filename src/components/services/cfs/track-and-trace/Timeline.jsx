@@ -2,6 +2,11 @@ import { useState } from 'react';
 import { DownloadIcon, Truck, Check } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import Label from '@/components/ui/Label';
+import { GiCargoCrate } from 'react-icons/gi';
+import { GiLogicGateOr } from "react-icons/gi";
+import { GiIndiaGate } from "react-icons/gi";
+
+
 
 export default function Timeline({ movement }) {
 	const [activeItem, setActiveItem] = useState(null);
@@ -30,7 +35,9 @@ export default function Timeline({ movement }) {
 								${activeItem === item.id ? 'bg-[var(--primary)]' : 'bg-[var(--background)] text-[var(--foreground)]'} border-2 transition-colors duration-300
 							`}>
 								<span className={`${activeItem === item.id ? 'text-[var(--background)]' : 'text-[var(--primary)]'}`}>
-									<Check />
+									{/* <GiCargoCrate className='w-5 h-5' /> */}
+									<GiIndiaGate className='w-7 h-7' />
+									{/* <span className='text-sm items-center'>CFS In</span> */}
 								</span>
 							</div>
 

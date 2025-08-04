@@ -65,11 +65,20 @@ export default function ContactUs() {
                 <div className="flex flex-col justify-between">
                     <div className="bg-white/90 p-8 rounded-2xl shadow-xl mb-6">
                         <h3 className="text-2xl font-bold text-primary mb-4">Our Office</h3>
-                        <p className="text-light-primary mb-2">GOL Global Logistics HQ</p>
-                        <p className="text-light-primary mb-2">123 Innovation Drive</p>
-                        <p className="text-light-primary mb-2">San Francisco, CA 94107</p>
-                        <p className="text-light-primary mb-2">Email: contact@gol.com</p>
-                        <p className="text-light-primary">Phone: +1 (800) 555-1234</p>
+                        <p className="text-light-primary mb-2">Haware Infotech Park, Sector 30A,</p>
+                        <p className="text-light-primary mb-2">Vashi, Navi Mumbai,</p>
+                        <p className="text-light-primary mb-2">Maharashtra 400703</p>
+                        <p className="text-light-primary mb-2">Email: 
+                            <button>
+                                <a href="mailto:helpedesklinkmylogistics@gmail.com" className="hover:text-primary transition-colors">
+                                    helpdesklinkmylogistics@gmail.com
+                                </a>
+                            </button>
+                        </p>
+                        <p className="text-light-primary">Phone: 
+                            <a href="tel:+9102233794084" className="hover:text-primary transition-colors">
+                                Tel. +91 022 33794084,
+                            </a></p>
                     </div>
                     <div className="rounded-2xl overflow-hidden shadow-xl h-64">
                         <iframe
