@@ -57,11 +57,6 @@ export default function Sidebar({
 
   const menuItems = [
     {
-      icon: <MessageSquare className="text-[var(--foreground)]" />,
-      text: "Messages",
-      url: "/customer/messages",
-    },
-    {
       icon: <CircleUserRound className="text-[var(--foreground)]" />,
       text: "Profile",
       url: "/customer/profile",
@@ -78,6 +73,7 @@ export default function Sidebar({
       title: "Merchant Login",
       description: "Get started with Merchant Side.",
       icon: <Sailboat className="text-[var(--foreground)]" />,
+      url: "/client/login",
     },
     { title: "Refer Co-Workers", icon: null },
     {
@@ -329,14 +325,6 @@ flex flex-col
         {/* Top Bar */}
         <header className="border-b p-4 flex items-center justify-between w-full">
           <div className="flex items-center">
-            {/* Toggle Button */}
-            {/* <button
-              onClick={toggleSidebar}
-              className="p-2 rounded-md hover:bg-gray-200 focus:outline-none"
-              aria-label="Toggle Sidebar"
-            >
-              <PanelLeft />              
-            </button> */}
 
             <button
               onClick={toggleSidebar}
@@ -376,29 +364,48 @@ flex flex-col
                 </div>
 
                 {/* Host section */}
+
                 <div className="pt-2 pb-2">
-                  {hostItems.map((item, index) => (
-                    <div
-                      key={index}
-                      onClick={() => item?.logout && handleLogout()}
-                      className="flex items-start py-3 px-4 hover:bg-[var(--background)] cursor-pointer"
-                    >
-                      <div className="flex-1">
-                        <div className="text-gray-800 text-sm">
-                          {item.title}
+                  {hostItems.map((item, index) => {
+                    const content = (
+                      <div
+                        className="flex items-start py-3 px-4 hover:bg-[var(--background)] cursor-pointer"
+                      >
+                        <div className="flex-1">
+                          <div className="text-gray-800 text-sm">{item.title}</div>
+                          {item.description && (
+                            <div className="text-gray-500 text-xs mt-1">
+                              {item.description}
+                            </div>
+                          )}
                         </div>
-                        {item.description && (
-                          <div className="text-gray-500 text-xs mt-1">
-                            {item.description}
-                          </div>
-                        )}
+                        {item.icon && <div className="ml-2 text-lg">{item.icon}</div>}
                       </div>
-                      {item.icon && (
-                        <div className="ml-2 text-lg">{item.icon}</div>
-                      )}
-                    </div>
-                  ))}
+                    );
+
+                    // If item has a logout flag, make it a clickable div with onClick
+                    if (item.logout) {
+                      return (
+                        <div key={index} onClick={handleLogout}>
+                          {content}
+                        </div>
+                      );
+                    }
+
+                    // If item has a URL, wrap it with <Link>
+                    if (item.url) {
+                      return (
+                        <Link key={index} href={item.url}>
+                          {content}
+                        </Link>
+                      );
+                    }
+
+                    // Else render plain div
+                    return <div key={index}>{content}</div>;
+                  })}
                 </div>
+                
               </div>
             </Popover>
           </div>
