@@ -449,7 +449,7 @@ const MobileWhiteCard = () => {
       {/* Service Tabs */}
       <div className="mb-6">
         {/* Progress Line Background */}
-        <div className="relative mb-4">
+        <div className="relative">
           <div className="w-full h-1 bg-gray-300 rounded-full" />
           <div
             className="absolute top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-500 ease-in-out"
@@ -476,7 +476,6 @@ const MobileWhiteCard = () => {
                 : 'text-gray-600'
                 }`}>
                 {service.label}
-                {service.id === 'customs' && <span className="block text-xs text-orange-500">Soon</span>}
               </p>
             </div>
           ))}
@@ -517,13 +516,13 @@ const MobileWhiteCard = () => {
       </div>
 
       {/* Truck Image */}
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <img
           src="/Truck.png"
           alt="Delivery Van"
           className="w-48 h-32 object-contain opacity-80"
         />
-      </div>
+      </div> */}
 
       <style jsx>{`
         .slider::-webkit-slider-thumb {

@@ -54,8 +54,8 @@ export default function Home() {
       <section className="relative bg-black text-white min-h-[80vh] flex items-center justify-center px-4">
         <Image src="/cargo-ship.png" alt="Hero" fill className="object-cover opacity-60" />
         <div className="relative z-10 text-center px-4 max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">India's First Digital Logistics Partner</h1>
-          <p className="text-lg mb-6">Transforming the logistics landscape with a one-stop destination for all your logistics needs – CFS, Warehousing, Transportation, and End-to-End 3PL services.</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-up">India's First Digital Logistics Partner</h1>
+          <p className="text-lg mb-6 animate-fade-up delay-200">Transforming the logistics landscape with a one-stop destination for all your logistics needs – CFS, Warehousing, Transportation, and End-to-End 3PL services.</p>
         </div>
       </section>
 
@@ -93,7 +93,7 @@ export default function Home() {
 
       <section className="py-20 bg-gray-50 px-4">
         <div className="max-w-6xl mx-auto grid gap-10 md:grid-cols-2 items-center">
-          <div>
+          <div className="animate-fade-right">
             <h2 className="text-2xl font-bold mb-6">Why Choose Us?</h2>
             <p className="text-gray-600 mb-10">At Link My Logistics, we are not just a logistics service provider - we are your digital logistics partner. Together, let's simplify the complex and move your business forward.</p>
             <div className="space-y-4 text-gray-700 grid sm:grid-cols-2">
@@ -110,7 +110,9 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <Image src="/bgimg1.jpeg" alt="Logistics dashboard" width={500} height={300} className="rounded-lg shadow w-full" />
+          <div className="animate-fade-left">
+            <Image src="/bgimg1.jpeg" alt="Logistics dashboard" width={500} height={300} className="rounded-lg shadow w-full" />
+          </div>
         </div>
       </section>
 
@@ -119,7 +121,7 @@ export default function Home() {
         <p className="text-gray-600 mb-10">Our digital logistics platform is designed to meet the needs of various businesses across industries.</p>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 max-w-6xl mx-auto">
           {clients.map((client, idx) => (
-            <div key={idx} className="bg-white px-3 py-8 rounded shadow-sm space-y-4">
+            <div key={idx} className="bg-white px-3 py-8 rounded-xl shadow-sm space-y-4">
               <span className="text-2xl flex justify-center text-primary">{client.icon}</span>
               <p className="text-xl font-semibold text-black">{client.title}</p>
             </div>
@@ -141,6 +143,49 @@ export default function Home() {
       </section>
 
       <Footer />
+
+      {/* Animations */}
+      <style jsx>{`
+                .animate-fade-up {
+                    animation: fadeUp 0.8s ease-out both;
+                }
+                .animate-fade-left {
+                    animation: fadeLeft 0.8s ease-out both;
+                }
+                .animate-fade-right {
+                    animation: fadeRight 0.8s ease-out both;
+                }
+                @keyframes fadeUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(40px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                @keyframes fadeLeft {
+                    from {
+                        opacity: 0;
+                        transform: translateX(-40px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+                @keyframes fadeRight {
+                    from {
+                        opacity: 0;
+                        transform: translateX(40px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+            `}</style>
     </main>
   );
 }

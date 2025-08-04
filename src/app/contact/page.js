@@ -8,7 +8,7 @@ import Navbar from '../components/header/navbar';
 
 export default function ContactUs() {
     return (
-            
+
         <section className="min-h-screen bg-secondary/20 flex flex-col items-center overflow-x-hidden">
             {/* Navbar */}
             <Navbar />
@@ -23,8 +23,8 @@ export default function ContactUs() {
                     priority
                 />
                 <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center z-10">
-                    <h1 className="text-white text-5xl font-extrabold drop-shadow-lg">Contact Us</h1>
-                    <p className="text-white/90 text-lg mt-3">We’re here to help. Reach out anytime.</p>
+                    <h1 className="text-white text-5xl font-extrabold drop-shadow-lg animate-fade-up">Contact Us</h1>
+                    <p className="text-white/90 text-lg mt-3 animate-fade-up delay-200">We’re here to help. Reach out anytime.</p>
                 </div>
             </div>
 
@@ -86,6 +86,49 @@ export default function ContactUs() {
             </div>
 
             <Footer />
+
+            {/* Animations */}
+            <style jsx>{`
+                .animate-fade-up {
+                    animation: fadeUp 0.8s ease-out both;
+                }
+                .animate-fade-left {
+                    animation: fadeLeft 0.8s ease-out both;
+                }
+                .animate-fade-right {
+                    animation: fadeRight 0.8s ease-out both;
+                }
+                @keyframes fadeUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(40px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                @keyframes fadeLeft {
+                    from {
+                        opacity: 0;
+                        transform: translateX(-40px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+                @keyframes fadeRight {
+                    from {
+                        opacity: 0;
+                        transform: translateX(40px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+            `}</style>
         </section>
     );
 }

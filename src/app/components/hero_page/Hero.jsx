@@ -5,11 +5,6 @@ import { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { Ship, Plane, Truck, Menu, X } from 'lucide-react';
-// import {
-//     Carousel,
-//     CarouselContent,
-//     CarouselItem
-// } from '@/components/ui/carousel';
 
 
 export default function HeroPage() {

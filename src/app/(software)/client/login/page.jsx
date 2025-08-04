@@ -37,11 +37,11 @@ export default function LoginPage() {
     }
   }
 
-  useEffect(() => {
-    if (user) {
-      router.push('/customer/dashboard')
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user) {
+  //     router.push('/customer/dashboard')
+  //   }
+  // }, [user]);
 
 
   return (

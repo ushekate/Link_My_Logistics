@@ -142,12 +142,6 @@ const ServicesPage = () => {
             <p className="text-white/90 text-lg md:text-2xl mt-4 max-w-2xl animate-fade-up delay-[200ms]">
               Comprehensive logistics solutions designed to streamline your supply chain operations and drive business growth.
             </p>
-            {/* <button
-              onClick={() => router.back()}
-              className="mt-6 px-4 py-2 bg-white text-black rounded-lg text-sm hover:bg-gray-200 transition"
-            >
-              ← Go Back
-            </button> */}
           </div>
         </div>
 
@@ -252,6 +246,49 @@ const ServicesPage = () => {
       </main>
 
       <Footer />
+
+      {/* Animations */}
+      <style jsx>{`
+                .animate-fade-up {
+                    animation: fadeUp 0.8s ease-out both;
+                }
+                .animate-fade-left {
+                    animation: fadeLeft 0.8s ease-out both;
+                }
+                .animate-fade-right {
+                    animation: fadeRight 0.8s ease-out both;
+                }
+                @keyframes fadeUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(40px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                @keyframes fadeLeft {
+                    from {
+                        opacity: 0;
+                        transform: translateX(-40px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+                @keyframes fadeRight {
+                    from {
+                        opacity: 0;
+                        transform: translateX(40px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+            `}</style>
     </div>
   );
 };
